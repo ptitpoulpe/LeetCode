@@ -4,7 +4,6 @@ class Solution:
         nums = sorted(nums)
         res = 10**6
         best_diff = 10**6
-        #print(nums)
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
                 s = nums[i] + nums[j]
@@ -22,14 +21,11 @@ class Solution:
                 if max_k in (i, j):
                     max_k += 1
 
-                #print(i, j, s, diff, min_k, max_k)
                 if min_k >= 0 and (min_k_diff := abs(diff - nums[min_k])) < best_diff:
                     best_diff = min_k_diff
                     res = s + nums[min_k]
-                    #print("min: ", res)
                 
                 if max_k < len(nums) and (max_k_diff := abs(diff - nums[max_k])) < best_diff:
                     best_diff = max_k_diff
                     res = s + nums[max_k]
-                    #print("max: ", res)     
         return res
