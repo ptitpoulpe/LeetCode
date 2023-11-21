@@ -9,7 +9,6 @@ class Solution:
         res = ListNode(next=head)
         queue = res
         while True:
-            print(queue)
             if queue.next is None or queue.next.next is None:
                 break
             tmp = queue.next
